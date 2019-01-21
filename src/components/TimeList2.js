@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import Time from './Time2';
+import axios from 'axios';
+
+var scurmId = "";
 
 class TimeList2 extends Component {
   
-    
+    componentDidMount(){
+        axios.get("http://143.248.140.106:2980/scrum/"+"5c45d5fc2e4d2623227ffd10")
+        .then(res=>{
+            console.log('asd: ${res.scrum.candi_date}')
+        })
+    }
 
     render() {
+
         var candi_date = [0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
         var first = candi_date.indexOf(1)/2;
         var last = candi_date.lastIndexOf(1)/2;
