@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TodoListTemplate from './components/TodoListTemplate';
 import TodoListTemplate2 from './components/TodoListTemplate2';
 import './App.css';
-import Calendar from './components/Calendar'
+import DayPicker from './components/DayPicker'
 import LoginTab from './components/LoginTab'
 import ConfirmTab from './components/ConfirmTab'
 import SelectTable from './components/SelectTable'
@@ -28,7 +28,10 @@ class App extends Component {
           <div className='pad'>
             <LoginTab></LoginTab>
             <SelectTable></SelectTable>
-            <Calendar></Calendar>
+            <DayPicker
+              active={new Date()}
+              onDayClick={(day) => this.setState({ day })}
+            />
             <ConfirmTab></ConfirmTab>
 
           </div>
