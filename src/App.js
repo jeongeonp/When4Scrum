@@ -5,6 +5,7 @@ import './App.css';
 import Calendar from './components/Calendar'
 import LoginTab from './components/LoginTab'
 import ConfirmTab from './components/ConfirmTab'
+import SelectTable from './components/SelectTable'
 
 
 
@@ -26,6 +27,7 @@ class App extends Component {
 
           <div className='pad'>
             <LoginTab></LoginTab>
+            <SelectTable></SelectTable>
             <Calendar></Calendar>
             <ConfirmTab></ConfirmTab>
 
