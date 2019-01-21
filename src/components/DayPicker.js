@@ -131,8 +131,7 @@ class DayPicker extends Component {
     })
 
     axios.post('/selectdate', {
-      id: this.state.id,
-      name: this.state.name
+      selected: day.getFullYear()+(day.getMonth()+11)+(day.getDate()+10)
     })
     .then(function (response) {
       console.log(response);

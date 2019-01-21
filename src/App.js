@@ -27,11 +27,11 @@ class App extends Component {
 
           <div className='pad'>
             <LoginTab></LoginTab>
-            <SelectTable></SelectTable>
             <DayPicker
               active={new Date()}
               onDayClick={(day) => this.setState({ day })}
             />
+            <SelectTable></SelectTable>
             <ConfirmTab></ConfirmTab>
 
           </div>
