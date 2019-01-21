@@ -1,0 +1,16 @@
+.login-template {
+  background: white;
+  width: 256px;
+  height: 96px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */ 
+  margin: 0 auto; /* 페이지 중앙 정렬 */
+  margin-top: 0rem;
+}
+
+
+.vCenterItems {
+  display: table-cell; 
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+}
