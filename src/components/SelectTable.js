@@ -35,6 +35,8 @@ class SelectTable extends Component {
         console.log(candi_date)
 
         ///candi_cate 를 서버에 올려주면 됨 (confirm 클릭 했을 때)
+
+        
     }
 
     render() {
