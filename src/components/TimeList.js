@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import Time from './Time';
 
 class TimeList extends Component {
+  
+
+
   render() {
     //const { todos, onToggle, onRemove } = this.props;
 
     return (
-      <div className='center'>
-        <Time text="10:00"/>
+      <div className='center' onClick={(e)=>{e.preventDefault(); console.log("123")}} id="main">
+        
+
+        <Time text="10:00" />
         <Time text="11:00"/>
         <Time text="12:00"/> 
         <Time text="13:00"/>
