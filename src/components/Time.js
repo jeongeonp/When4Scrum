@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Time.css';
 
 const first = '#FFFFFF';
-const clicked = '#AAF0D1';
+const clicked = '#96c8e6';
 
 class Time extends Component {
   constructor() {

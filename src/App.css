@@ -52,6 +52,6 @@
   width: 100%;
 }
 
-.rowC{display:flex; flex-direction:row;}
+.rowC{display:flex; flex-direction:row; }
 
-.pad{padding: 2rem; width: 30%; padding-left: 5%; padding-right: 3%;}
+.pad{padding: 2rem; width: 225px; padding-left: 5%; padding-right: 3%;}

@@ -32,8 +32,8 @@ class App extends Component {
             <ConfirmTab></ConfirmTab>
 
           </div>
-            <TodoListTemplate></TodoListTemplate>
-            <TodoListTemplate2></TodoListTemplate2>
+          <TodoListTemplate></TodoListTemplate>
+          <TodoListTemplate2></TodoListTemplate2>
             
         </div>
     </div>
