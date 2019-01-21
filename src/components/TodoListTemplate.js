@@ -12,7 +12,7 @@ const TodoListTemplate = ({form, children}) => {
         
       </div>
       <div>
-        <TimeList></TimeList>
+        <TimeList className='center'></TimeList>
       </div>
 
 

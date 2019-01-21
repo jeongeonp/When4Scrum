@@ -8,12 +8,9 @@ import ConfirmTab from './components/ConfirmTab'
 
 
 
-const divStyle = {
-  display: 'flex',
-  alignItems: 'center'
-};
+//const divStyle = { display: 'flex', alignItems: 'center' };
 
-const style = { display: 'flex', justifyContent: 'center', alignItems: 'center', width: '..', height: '..'}
+//const style = { display: 'flex', justifyContent: 'center', alignItems: 'center', width: '..', height: '..'}
 
 class App extends Component {
   
@@ -22,7 +19,7 @@ class App extends Component {
     return (
       <div className="vertical">
         <div className="title-template">
-          When2Scrum
+          When4Scrum
         </div>
 
         <div className='rowC'>
@@ -32,22 +29,11 @@ class App extends Component {
             <Calendar></Calendar>
             <ConfirmTab></ConfirmTab>
 
-
           </div>
-
-          
-            <TodoListTemplate form = "times picked">
-              text
-            </TodoListTemplate>
-          
-          
-            <TodoListTemplate2 form = "times selected">
-              second
-            </TodoListTemplate2>
-          
+            <TodoListTemplate></TodoListTemplate>
+            <TodoListTemplate2></TodoListTemplate2>
             
         </div>
-
     </div>
       
     );

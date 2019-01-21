@@ -49,9 +49,9 @@
   font-size: 3rem;
   text-align: center;
   font-weight: 150;
-   
+  width: 100%;
 }
 
 .rowC{display:flex; flex-direction:row;}
 
-.pad{padding: 2rem;}
+.pad{padding: 2rem; width: 20%;}

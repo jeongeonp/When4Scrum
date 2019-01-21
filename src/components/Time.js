@@ -21,11 +21,14 @@ class Time extends Component {
     const {text} = this.props;
 
     return (
-      <div style={{background: bgColor}}>
-        <div className="todo-item" onClick={this.changeColor.bind(this)}>
+    
+      <div className="todo-item" onClick={this.changeColor.bind(this)} style={{background: bgColor}}>
+        <div className="trial">
           {text}
         </div>
+        
       </div>
+      
       
     );
   }

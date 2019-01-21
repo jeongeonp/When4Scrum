@@ -13,6 +13,8 @@ class LoginTab extends Component {
     }
   }
 
+
+
   render() {
 
     const responseGoogle = (res) => {
@@ -51,7 +53,10 @@ class LoginTab extends Component {
           />
 
         </div>
-        <div>User: {this.state.name}</div>
+        
+        <div className="marginTop">
+          User: {this.state.name}
+          </div>
       </main>
     );
   }

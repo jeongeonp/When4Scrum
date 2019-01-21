@@ -6,27 +6,18 @@ class TimeList extends Component {
 
 
   render() {
-    //const { todos, onToggle, onRemove } = this.props;
+    var rows = [];
+    for (var i=0; i<10; i++) {
+      rows.push(<Time key={i} text={i + ":00"}/>)
+      rows.push(<Time key={i} text={i + ":30"}/>)
+    }
+    
 
     return (
       <div className='center' onClick={(e)=>{e.preventDefault(); console.log("123")}} id="main">
-        
+        {rows}
 
-        <Time text="10:00" />
-        <Time text="11:00"/>
-        <Time text="12:00"/> 
-        <Time text="13:00"/>
-        <Time text="14:00"/>
-        <Time text="15:00"/>  
-        <Time text="16:00"/>
-        <Time text="17:00"/>
-        <Time text="18:00"/>
-        <Time text="19:00"/>
-        <Time text="20:00"/>
-        <Time text="21:00"/>  
-        <Time text="22:00"/>
-        <Time text="23:00"/>
-        <Time text="24:00"/>         
+         
       </div>
     );
   }
