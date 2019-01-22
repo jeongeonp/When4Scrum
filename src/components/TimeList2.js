@@ -37,7 +37,7 @@ class TimeList2 extends Component {
     }
 
     componentDidMount(){
-        this.interval = setInterval(() => this.setState({ time: Date.now() }), 2000);
+        this.interval = setInterval(() => this.setState({ time: Date.now() }), 1500);
     }
 
     componentDidUpdate(prevProps, prevState) {
