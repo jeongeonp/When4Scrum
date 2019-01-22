@@ -14,7 +14,9 @@ class SelectTable extends Component {
         super(props)
         this.state = {
             id: "",
-            date: ""
+            date: "",
+            uri: "",
+            hasLoaded:false
         }
         
     }
@@ -25,12 +27,12 @@ class SelectTable extends Component {
     
 
     _onSelect (option) {
-        console.log('You selected1 ', option.label)
+        //console.log('You selected1 ', option.label)
         startTime = option.label
     }
 
     _onSelect2 (option) {
-        console.log('You selected2 ', option.label)
+        //console.log('You selected2 ', option.label)
         endTime = option.label
         //console.log(id + "   dsjkl" + date)
         //console.log(this.props)
@@ -53,22 +55,24 @@ class SelectTable extends Component {
         }
         console.log(candi_date)
         ///candi_cate 를 서버에 올려주면 됨 (confirm 클릭 했을 때)
-
-        var json = '{ "name": "trial", "candi_date": {"date": "' + this.state.date + '", "time: [' + candi_date + ']}, "participants": { "uid": "' + 
-        this.state.id + '", "time": [' + candi_date + ']} }';
-
-        console.log(json);
-
-
-        axios.post('http://143.248.140.106:2980/scrum', {
-            json
-          })
-          .then(function (response) {
-            console.log(response);
+        
+        
+        var url = ""
+        axios.post('http://143.248.140.106:2980/scrum', {"json":{"name": "trial","candi_date":{"date":this.state.date,"time":candi_date},"participants":{"uid":this.state.id,"time":candi_date}}},{ headers: {
+            'Content-Type': 'application/json'}})
+          .then( (response) => {
+            url = response.data.createdScrum.request.url
+            //console.log(url);
+            var idx = url.lastIndexOf("/")
+            url = url.substring(idx+1);
+            //console.log(url)
+            this.props.onUpdate(url)
+            //console.log("THIS IS BEING CALLED3   " + url.toString())
           })
           .catch(function (error) {
             console.log(error);
-          });
+          }.bind(this));
+          console.log(url + "out of axios!!!");
         
     }
 
@@ -76,7 +80,7 @@ class SelectTable extends Component {
         const options = ["0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", 
         "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
         const defaultOption = options[0]
-        console.log(this.props.id)
+        //console.log(this.props.id)
 
         
 

@@ -9,17 +9,20 @@ import SelectTable from './components/SelectTable'
 
 var idd = "";
 var datee = "";
+var urll = window.location.href;
 
 //const divStyle = { display: 'flex', alignItems: 'center' };
 
 //const style = { display: 'flex', justifyContent: 'center', alignItems: 'center', width: '..', height: '..'}
 
 class App extends Component {
+  //const scrumUrl="http://"
   constructor() { 
   super(); 
   this.state = { 
     id: "", 
-    date: ""
+    date: "",
+    url: ""
   }; 
   
   } 
@@ -35,10 +38,16 @@ class App extends Component {
     console.log(this.state.date)
   };
 
+  onUpdate3 = (data) => {
+    this.setState({url: data})
+    console.log(this.state.url)
+  };
+
   
   render() {
     idd = this.state.id
     datee = this.state.date
+    urll = this.state.url
     console.log(idd + "ddd " + datee)
     return (
       <div className="vertical">
@@ -56,14 +65,16 @@ class App extends Component {
               onDayClick={(day) => this.setState({ day })}
               onUpdate={this.onUpdate2}
             />
-            <SelectTable id={idd} date={datee}></SelectTable>
-            {idd} dhs {datee}
-            result
+            <SelectTable id={idd} date={datee} onUpdate={this.onUpdate3}></SelectTable>
+            {window.location.href}{urll}
+            
+            
+            
             <ConfirmTab></ConfirmTab>
             
           </div>
-          <TodoListTemplate></TodoListTemplate>
-          <TodoListTemplate2></TodoListTemplate2>
+          <TodoListTemplate id={idd} url={urll}></TodoListTemplate>
+          <TodoListTemplate2 id={idd} url={urll}></TodoListTemplate2>
             
         </div>
     </div>

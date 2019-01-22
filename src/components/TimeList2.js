@@ -6,27 +6,79 @@ var scurmId = "";
 var candi_date = [];
 var received = [];
 var rows = [];
+var idd = "";
+var urll = "";
 class TimeList2 extends Component {
     
-    state = {
-        isLoading: true,
-    }
+    constructor (props) {
+        super(props)
+        this.state = {
+          id: "",
+          isLoading: true,
+          selected: "",
+          url: "",
+          time: ""
+        }
+        
+      }  
     componentWillMount(){
-        axios.get("http://143.248.140.106:2980/scrum/5c45dbd52e4d2623227ffd11")
+        var idx = (window.location.href).lastIndexOf("/")
+        if ((window.location.href !== "http://localhost:3000/")&&(window.location.href.substring(idx+1))){ 
+        axios.get("http://143.248.140.106:2980/scrum/"+window.location.href.substring(idx+1))
         .then(res=>{
-            //console.log('HI')
-            //console.log(res.data.scrum.candi_date[0].time)
-            //console.log(res.data.statistics)
+            
             candi_date = res.data.scrum.candi_date[0].time;
             received = res.data.statistics
+            console.log("STATISTICS:" + received)
             this.setState({
                 isLoading:false
             });
-        })
-      }
+        })}
+    }
+
+    componentDidMount(){
+        this.interval = setInterval(() => this.setState({ time: Date.now() }), 2000);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(prevState.time)
+        console.log(this.state.time)
+        if(prevState.time !== this.state.time) {
+            var idx2 = (window.location.href).lastIndexOf("/")
+            if (!(window.location.href.substring(idx2+1)) && (urll)){
+            axios.get("http://143.248.140.106:2980/scrum/"+urll)
+                .then(res=>{
+                
+                candi_date = res.data.scrum.candi_date[0].time;
+                received = res.data.statistics
+                console.log("STATISTICS:" + received)
+                this.setState({
+                    isLoading:false
+                });
+            })} 
+            else if ((window.location.href.substring(idx2+1))) {
+                axios.get("http://143.248.140.106:2980/scrum/"+window.location.href.substring(idx2+1))
+                .then(res=>{
+                
+                candi_date = res.data.scrum.candi_date[0].time;
+                received = res.data.statistics
+                console.log("STATISTICS:" + received)
+                this.setState({
+                    isLoading:false
+                });
+            })
+            }
+        }
+    }
 
     render() {
-        // candi_date = this.props.candi_date;
+
+        this.state.id = this.props.id
+        this.state.url = this.props.url
+        idd = this.state.id
+        urll = this.state.url
+        //console.log("UNDEFINED WHYYYY" + urll)
+        
         const { isLoading } = this.state;
         // received = this.props.received;
         //console.log("is candidate passed? " + candi_date);
