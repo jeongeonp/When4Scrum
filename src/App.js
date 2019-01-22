@@ -32,8 +32,9 @@ class App extends Component {
               onDayClick={(day) => this.setState({ day })}
             />
             <SelectTable></SelectTable>
+            result
             <ConfirmTab></ConfirmTab>
-
+            
           </div>
           <TodoListTemplate></TodoListTemplate>
           <TodoListTemplate2></TodoListTemplate2>
