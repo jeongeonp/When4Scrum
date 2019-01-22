@@ -130,7 +130,15 @@ class DayPicker extends Component {
       year: day.getFullYear()
     })
 
-    axios.post('/selectdate', {
+    var wholedate = "" + day.getFullYear()+','+(day.getMonth()+1)+','+day.getDate()
+    console.log(wholedate + "ddddd")
+
+    this.props.onUpdate(wholedate)
+    console.log("THIS IS BEING CALLED2")
+
+    console.log("!!!!!! this is " + day.getFullYear()+(day.getMonth()+11)+(day.getDate()+10))
+
+    /*axios.post('/selectdate', {
       selected: day.getFullYear()+(day.getMonth()+11)+(day.getDate()+10)
     })
     .then(function (response) {
@@ -138,7 +146,7 @@ class DayPicker extends Component {
     })
     .catch(function (error) {
       console.log(error);
-    });
+    });*/
 
     console.log(this.state.today);
     return (

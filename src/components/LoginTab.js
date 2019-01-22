@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './LoginTab.css';
 import GoogleLogin from 'react-google-login';
-import axios from 'axios';
 
 class LoginTab extends Component {
   constructor(props) {
@@ -15,7 +14,15 @@ class LoginTab extends Component {
 
 
 
+
+
   render() {
+    /*const update =(res) => {
+      console.log("THIS IS BEING CALLED")
+      console.log(res.googleId)
+      this.props.onUpdate(res.googleId)
+      this.setState({id: res.googleId})
+    }*/
 
     const responseGoogle = (res) => {
       this.setState({
@@ -23,8 +30,13 @@ class LoginTab extends Component {
         name: res.profileObj.name,
         provider: 'google'
       });
+      this.props.onUpdate(res.googleId)
+      console.log("THIS IS BEING CALLED")
+      /////here
+      //console.log("id: " + this.state.id + " name: " + this.state.name)
+      
   
-      axios.post('/signin', {
+      /*axios.post('/signin', {
         id: this.state.id,
         name: this.state.name
       })
@@ -33,7 +45,7 @@ class LoginTab extends Component {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      });*/
     }
   
     const responseFail = (err) => {
@@ -50,6 +62,7 @@ class LoginTab extends Component {
             buttonText="GOOGLE"
             onSuccess={responseGoogle}
             onFailure={responseFail}
+                        
           />
 
         </div>
